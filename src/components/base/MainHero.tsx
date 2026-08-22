@@ -66,7 +66,7 @@ export default function HeroSection() {
 
       {/* Background Image with Gradient Mask */}
       <div
-        className="absolute inset-0 z-0 bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/a72ca2f3-9dd1-4fe4-84ba-fe86468a5237_3840w.webp?w=800&q=80)] bg-cover bg-center opacity-40"
+        className="absolute inset-0 z-0 bg-[url('/bg-main.webp')] bg-cover bg-center opacity-40"
         style={{
           maskImage: "linear-gradient(180deg, transparent, black 0%, black 70%, transparent)",
           WebkitMaskImage: "linear-gradient(180deg, transparent, black 0%, black 70%, transparent)",
@@ -113,7 +113,7 @@ export default function HeroSection() {
             {/* CTA Buttons */}
             <div className="animate-fade-in delay-400 flex flex-col sm:flex-row gap-4">
               <button className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-semibold text-zinc-950 transition-all hover:scale-[1.02] hover:bg-zinc-200 active:scale-[0.98]">
-                View Portfolio
+                View Templates
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </button>
 
