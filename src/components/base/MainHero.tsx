@@ -1,9 +1,9 @@
 import React from "react";
-import { 
-  ArrowRight, 
-  Play, 
-  Target, 
-  Crown, 
+import {
+  ArrowRight,
+  Play,
+  Target,
+  Crown,
   Star,
   // Brand Icons
   Hexagon,
@@ -13,16 +13,17 @@ import {
   Gem,
   Cpu
 } from "lucide-react";
+import ShowReelDialog from "./ShowReelDialog";
 
 // --- MOCK BRANDS ---
 // Replaced PNGs with Lucide icons to simulate tech logos
 const CLIENTS = [
-  { name: "Acme Corp", icon: Hexagon },
-  { name: "Quantum", icon: Triangle },
-  { name: "Command+Z", icon: Command },
-  { name: "Phantom", icon: Ghost },
-  { name: "Ruby", icon: Gem },
-  { name: "Chipset", icon: Cpu },
+  { name: "Gnajineh", icon: Hexagon },
+  { name: "Ghaltaksazan", icon: Triangle },
+  { name: "Flepix", icon: Command },
+  { name: "Partopardaz", icon: Ghost },
+  { name: "Test", icon: Gem },
+  { name: "Test", icon: Cpu },
 ];
 
 // --- SUB-COMPONENTS ---
@@ -64,7 +65,7 @@ export default function HeroSection() {
       `}</style>
 
       {/* Background Image with Gradient Mask */}
-      <div 
+      <div
         className="absolute inset-0 z-0 bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/a72ca2f3-9dd1-4fe4-84ba-fe86468a5237_3840w.webp?w=800&q=80)] bg-cover bg-center opacity-40"
         style={{
           maskImage: "linear-gradient(180deg, transparent, black 0%, black 70%, transparent)",
@@ -72,12 +73,12 @@ export default function HeroSection() {
         }}
       />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 pt-24 pb-12 sm:px-6 md:pt-32 md:pb-20 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 pt-16 pb-12 sm:px-6 md:pt-16 md:pb-20 lg:px-8">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8 items-start">
-          
+
           {/* --- LEFT COLUMN --- */}
           <div className="lg:col-span-7 flex flex-col justify-center space-y-8 pt-8">
-            
+
             {/* Badge */}
             <div className="animate-fade-in delay-100">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-md transition-colors hover:bg-white/10">
@@ -89,23 +90,23 @@ export default function HeroSection() {
             </div>
 
             {/* Heading */}
-            <h1 
+            <h1
               className="animate-fade-in delay-200 text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-medium tracking-tighter leading-[0.9]"
               style={{
                 maskImage: "linear-gradient(180deg, black 0%, black 80%, transparent 100%)",
                 WebkitMaskImage: "linear-gradient(180deg, black 0%, black 80%, transparent 100%)"
               }}
             >
-              Crafting Digital<br />
+              LOOCATO<br />
               <span className="bg-gradient-to-br from-white via-white to-[#ffcd75] bg-clip-text text-transparent">
-                Experiences
+                Looking Catalogues
               </span><br />
-              That Matter
+              In One Location
             </h1>
 
             {/* Description */}
             <p className="animate-fade-in delay-300 max-w-xl text-lg text-zinc-400 leading-relaxed">
-              We design interfaces that combine beauty with functionality,
+              We design digital catalogues that combine beauty with functionality,
               creating seamless experiences that users love and businesses thrive on.
             </p>
 
@@ -115,17 +116,23 @@ export default function HeroSection() {
                 View Portfolio
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </button>
-              
-              <button className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/10 hover:border-white/20">
+
+              {/* <button className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/10 hover:border-white/20">
                 <Play className="w-4 h-4 fill-current" />
                 Watch Showreel
-              </button>
+              </button> */}
+              <ShowReelDialog
+                videoSrc="/videos/intro.mp4"
+                poster="/images/video-poster.jpg"
+                title="Introduction video"
+                triggerText="Watch Showreel"
+              />
             </div>
           </div>
 
           {/* --- RIGHT COLUMN --- */}
           <div className="lg:col-span-5 space-y-6 lg:mt-12">
-            
+
             {/* Stats Card */}
             <div className="animate-fade-in delay-500 relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-2xl">
               {/* Card Glow Effect */}
@@ -184,8 +191,8 @@ export default function HeroSection() {
             {/* Marquee Card */}
             <div className="animate-fade-in delay-500 relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 py-8 backdrop-blur-xl">
               <h3 className="mb-6 px-8 text-sm font-medium text-zinc-400">Trusted by Industry Leaders</h3>
-              
-              <div 
+
+              <div
                 className="relative flex overflow-hidden"
                 style={{
                   maskImage: "linear-gradient(to right, transparent, black 20%, black 80%, transparent)",
@@ -195,7 +202,7 @@ export default function HeroSection() {
                 <div className="animate-marquee flex gap-12 whitespace-nowrap px-4">
                   {/* Triple list for seamless loop */}
                   {[...CLIENTS, ...CLIENTS, ...CLIENTS].map((client, i) => (
-                    <div 
+                    <div
                       key={i}
                       className="flex items-center gap-2 opacity-50 transition-all hover:opacity-100 hover:scale-105 cursor-default grayscale hover:grayscale-0"
                     >
