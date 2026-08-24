@@ -12,14 +12,16 @@ import {
   Gem,
   Cpu,
 } from "lucide-react";
+import ShowReelDialog from "./ShowReelDialog";
+import Image from "next/image";
 
 const CLIENTS = [
-  { name: "Acme Corp", icon: Hexagon },
-  { name: "Quantum", icon: Triangle },
-  { name: "Command+Z", icon: Command },
-  { name: "Phantom", icon: Ghost },
-  { name: "Ruby", icon: Gem },
-  { name: "Chipset", icon: Cpu },
+  { name: "Gnajineh", icon: Hexagon },
+  { name: "Ghaltaksazan", icon: Triangle },
+  { name: "Flepix", icon: Command },
+  { name: "Partopardaz", icon: Ghost },
+  { name: "Test", icon: Gem },
+  { name: "Test", icon: Cpu },
 ];
 
 const StatItem = ({ value, label }: { value: string; label: string }) => (
@@ -33,7 +35,7 @@ const StatItem = ({ value, label }: { value: string; label: string }) => (
 
 export default function HeroSection() {
   return (
-    <div className="relative w-full bg-zinc-950 text-white overflow-hidden font-sans">
+    <div className="relative w-full bg-zinc-950 text-white overflow-hidden font-sans min-h-screen">
       <style>{`
         @keyframes fadeSlideIn {
           from { opacity: 0; transform: translateY(20px); }
@@ -58,16 +60,16 @@ export default function HeroSection() {
       `}</style>
 
       <div
-        className="absolute inset-0 z-0 bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/a72ca2f3-9dd1-4fe4-84ba-fe86468a5237_3840w.webp?w=800&q=80)] bg-cover bg-center opacity-40"
+        className="fixed inset-0 z-0 bg-[url('/bg-main.jpg')] bg-cover bg-center bg-no-repeat opacity-40"
         style={{
           maskImage:
-            "linear-gradient(180deg, transparent, black 0%, black 70%, transparent)",
+            "linear-gradient(180deg, transparent 0%, black 15%, black 70%, transparent 100%)",
           WebkitMaskImage:
-            "linear-gradient(180deg, transparent, black 0%, black 70%, transparent)",
+            "linear-gradient(180deg, transparent 0%, black 15%, black 70%, transparent 100%)",
         }}
       />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 pt-24 pb-12 sm:px-6 md:pt-32 md:pb-20 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 pt-16 pb-12 sm:px-6 md:pt-16 md:pb-20 lg:px-8">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8 items-start">
           <div className="lg:col-span-7 flex flex-col justify-center space-y-8 pt-8">
             <div className="animate-fade-in delay-100">
@@ -88,31 +90,37 @@ export default function HeroSection() {
                   "linear-gradient(180deg, black 0%, black 80%, transparent 100%)",
               }}
             >
-              Crafting Digital
+              LOOCATO
               <br />
               <span className="bg-gradient-to-br from-white via-white to-[#ffcd75] bg-clip-text text-transparent">
-                Experiences
+                Looking Catalogues
               </span>
               <br />
-              That Matter
+              In One Location
             </h1>
 
             <p className="animate-fade-in delay-300 max-w-xl text-lg text-zinc-400 leading-relaxed">
-              We design interfaces that combine beauty with functionality,
-              creating seamless experiences that users love and businesses
-              thrive on.
+              We design digital catalogues that combine beauty with
+              functionality, creating seamless experiences that users love and
+              businesses thrive on.
             </p>
 
             <div className="animate-fade-in delay-400 flex flex-col sm:flex-row gap-4">
               <button className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-semibold text-zinc-950 transition-all hover:scale-[1.02] hover:bg-zinc-200 active:scale-[0.98]">
-                View Portfolio
+                View Templates
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </button>
 
-              <button className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/10 hover:border-white/20">
+              {/* <button className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/10 hover:border-white/20">
                 <Play className="w-4 h-4 fill-current" />
                 Watch Showreel
-              </button>
+              </button> */}
+              <ShowReelDialog
+                videoSrc="/videos/intro.mp4"
+                poster="/images/video-poster.jpg"
+                title="Introduction video"
+                triggerText="Watch Showreel"
+              />
             </div>
           </div>
 
@@ -121,17 +129,29 @@ export default function HeroSection() {
               <div className="absolute top-0 right-0 -mr-16 -mt-16 h-64 w-64 rounded-full bg-white/5 blur-3xl pointer-events-none" />
 
               <div className="relative z-10">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/20">
-                    <Target className="h-6 w-6 text-white" />
+                <div className="flex justify-between">
+                  <div className="flex items-center gap-4 mb-8">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/20">
+                      <Target className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <div className="text-3xl font-bold tracking-tight text-white">
+                        150+
+                      </div>
+                      <div className="text-sm text-zinc-400">
+                        Projects Delivered
+                      </div>
+                    </div>
                   </div>
+
                   <div>
-                    <div className="text-3xl font-bold tracking-tight text-white">
-                      150+
-                    </div>
-                    <div className="text-sm text-zinc-400">
-                      Projects Delivered
-                    </div>
+                    <Image
+                      src={"/LogoTypo.svg"}
+                      alt="logo"
+                      height={100}
+                      width={100}
+                      className="mt-2.5"
+                    />
                   </div>
                 </div>
 

@@ -121,10 +121,13 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
+    @apply m-0 min-h-full bg-black;
   }
-  html {
+
+  /* html {
     @apply font-sans;
-  }
+  } */
 }
